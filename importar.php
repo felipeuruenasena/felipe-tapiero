@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-require 'vendor/autoload.php';
+require 'conexion.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 $mensaje = '';
@@ -8,11 +8,8 @@ if(isset($_POST['importar'])){
     if(!isset($_FILES['excel']) || $_FILES['excel']['error']!=0){
         $mensaje = '❌ Error al subir el archivo.';
     } else {
-        $tmp = $_FILES['excel']['tmp_name'];
+        $tmp = $_FILES['excel'];
         try {
-            $spreadsheet = IOFactory::load($tmp);
-            $sheet = $spreadsheet->getActiveSheet();
-            $rows = $sheet->toArray();
             foreach($rows as $i => $row){
                 if($i==0) continue; // encabezado
                 $documento = $conn->real_escape_string($row[0] ?? '');
@@ -51,7 +48,7 @@ if(isset($_POST['importar'])){
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <style>body{background:#0b1220;color:#e6eef8}.card{background:#0f1724}</style>
+  <style>body{background:#e6eef8;color:#e6eef8}.card{background:#e6eef8}</style>
 </head>
 <body>
 <?php include 'navbar.php'; ?>
@@ -61,7 +58,7 @@ if(isset($_POST['importar'])){
     <?php if($mensaje): ?><div class="alert alert-info"><?= $mensaje ?></div><?php endif; ?>
     <form method="POST" enctype="multipart/form-data">
       <div class="mb-3">
-        <label class="form-label">Archivo .xlsx (Primera fila = encabezado)</label>
+        <label class="form-label">Archivo .csv (Primera fila = encabezado)</label>
         <input type="file" name="excel" accept=".xlsx" class="form-control" required>
       </div>
       <div class="mb-3">

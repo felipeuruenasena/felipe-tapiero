@@ -1,0 +1,4 @@
+documento;nombre_proveedor;email;codigo;nombre_producto;marca;valor_unitario;fecha (YYYY-MM-DD);cantidad
+123456789;sherman tapiero;felipeuruena025@gmail.com;P001;Laptop;Dell;2500000;1/9/2025;10
+987654321;maicol lopz;maicol@gamil.com;P002;Mouse;Logitech;80000;5/9/2025;50
+456789123;duvan perez;duvanpe@gmail.com;P003;Teclado;HP;120000;10/9/2025;30

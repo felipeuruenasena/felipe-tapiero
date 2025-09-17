@@ -12,9 +12,9 @@ include "db.php";
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    body { background-color: #f6f8fbff; color: #e6eef8; }
-    .card { background-color: #dee7f6ff; border: 1px solid rgba(255,255,255,0.05); }
-    .table thead th { background-color: #0b1220; color: #fff; }
+    body { background-color: #f6f8fbff; color: #4e8edcff; }
+    .card { background-color: #cddcf5ff; border: 1px solid rgba(11, 11, 11, 0.05); }
+    .table thead th { background-color: #4a0f19ff; color: #fff; }
     .table tbody tr:hover { background-color: rgba(255,255,255,0.03); }
     .btn-icon { display:inline-flex; align-items:center; gap:.4rem; }
   </style>
@@ -45,7 +45,6 @@ include "db.php";
             <th class="text-end">Cantidad</th>
             <th class="text-end">V. Unitario</th>
             <th class="text-end">Total</th>
-            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -57,8 +56,7 @@ $sql = "SELECT c.id, p.nombre AS proveedor, p.email, pr.nombre AS producto, pr.m
         JOIN productos pr ON c.producto_id = pr.id
         ORDER BY c.id DESC";
 $result = $conn->query($sql);
-while($row = $result->fetch_assoc()):
-?>
+while($row = $result->fetch_assoc()):?>
           <tr>
             <td><?= $row['id'] ?></td>
             <td><?= htmlspecialchars($row['proveedor']) ?></td>
