@@ -5,15 +5,15 @@ include "db.php";
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Compras - MiElementos</title>
+  <title>MiElementos</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    body { background-color: #0b1220; color: #e6eef8; }
-    .card { background-color: #0f1724; border: 1px solid rgba(255,255,255,0.05); }
+    body { background-color: #f6f8fbff; color: #e6eef8; }
+    .card { background-color: #dee7f6ff; border: 1px solid rgba(255,255,255,0.05); }
     .table thead th { background-color: #0b1220; color: #fff; }
     .table tbody tr:hover { background-color: rgba(255,255,255,0.03); }
     .btn-icon { display:inline-flex; align-items:center; gap:.4rem; }
@@ -36,7 +36,7 @@ include "db.php";
       <table class="table table-borderless table-hover text-white align-middle">
         <thead>
           <tr>
-            <th>ID</th>
+            <th>doc</th>
             <th>Proveedor</th>
             <th>Email</th>
             <th>Producto</th>
